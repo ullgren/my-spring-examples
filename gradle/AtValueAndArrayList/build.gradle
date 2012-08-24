@@ -1,0 +1,16 @@
+apply plugin: 'java'
+
+description = '@Value to insert a ArrayList example'
+
+sourceCompatibility=1.5
+targetCompatibility=1.5
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile "org.springframework:spring-context:3.1.+"
+    testCompile "org.springframework:spring-test:3.1.+"
+    testCompile "junit:junit:4.+"
+}

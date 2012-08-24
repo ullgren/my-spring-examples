@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+              http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+              http://www.springframework.org/schema/context
+              http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+	<!-- Configuration for the Factory test application. -->
+	
+	<!-- Enables detection of annotations -->
+	<context:annotation-config/>	
+
+	<!-- Using a LegacySingleton factory-method that takes a argument -->
+	<!-- Constructor-arg will be passed into the factory-method --> 	
+	<bean id="legacySingleton" class="factorytests.LegacySingleton" factory-method="getInstance">
+		<constructor-arg value="Test" />
+	</bean>
+	
+	<!-- Using a POJO FactoryBean factory-method with and without arguments --> 
+	<!-- Constructor-arg will be passed into the factory-method -->
+	<bean id="pojoClientServiceFactory" class="factorytests.PojoClientServiceFactory"/>
+	<bean id="clientService" factory-bean="pojoClientServiceFactory" factory-method="getDefaultInstance" />
+	<bean id="clientService2" factory-bean="pojoClientServiceFactory" factory-method="createNamedInstance" >
+		<constructor-arg value="Kalle" />
+	</bean>
+	
+	<!-- Using FactoryBean interface -->
+	<!-- Constructor-arg will be passed into the FactoryBean constructor -->
+	<!-- Note: At start-up you create the Factory and getObject() is called on Application.getBean(..). -->
+	<bean id="clientService3" class="factorytests.ClientServiceFactoryBean">
+		<constructor-arg value="Kalle" />
+	</bean>
+	
+	<bean class="factorytests.LogingBeanPostProcessor" />
+
+</beans>
+
+
+
+
+
+
+
+
+
+
+
+
+

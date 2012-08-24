@@ -1,0 +1,3 @@
+This is a simple test to show how to setup the "org.springframework.aop.interceptor.PerformanceMonitorInterceptor"
+
+See ./src/test/resources/system-test.xml

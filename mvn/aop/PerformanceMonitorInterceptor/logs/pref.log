@@ -1,0 +1,2 @@
+[2011-12-12 13:14:27,075] - TRACE - StopWatch 'mytdl.mycompany.myapp.internal.ServiceA.execute': running time (millis) = 1 
+[2011-12-12 13:14:27,163] - TRACE - StopWatch 'mytdl.mycompany.myapp.internal.ServiceB.execute': running time (millis) = 1 

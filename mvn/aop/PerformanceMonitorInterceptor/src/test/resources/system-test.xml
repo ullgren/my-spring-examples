@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+       xsi:schemaLocation="
+            http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/aop
+            http://www.springframework.org/schema/aop/spring-aop.xsd
+            http://www.springframework.org/schema/jdbc
+            http://www.springframework.org/schema/jdbc/spring-jdbc-3.0.xsd">
+
+   <import resource="classpath:mytdl/mycompany/myapp/internal/application-config.xml"/>
+
+   <bean id="springMonitoringAspectInterceptor"
+         class="org.springframework.aop.interceptor.PerformanceMonitorInterceptor">
+       <!-- This property controlls whether to log the invocation on the target class or not. -->
+       <!-- Setting this to true will give the class name in the log file, false (default) will give the interface name. -->
+       <property name="LogTargetClassInvocation" value="true" />
+   </bean>
+		
+   <aop:config>
+	<aop:pointcut id="springMonitoringPointcut" 
+		expression="execution(* mytdl.mycompany.myapp.AppService.execute(..))" />
+	<aop:advisor pointcut-ref="springMonitoringPointcut" advice-ref="springMonitoringAspectInterceptor"/>
+    </aop:config>
+
+</beans>
