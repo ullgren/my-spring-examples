@@ -1,6 +1,6 @@
 apply plugin: 'java'
 
-description = 'Template project for Spring examples'
+description = 'Testing Spring Cache Abstraction'
 
 sourceCompatibility=1.5
 targetCompatibility=1.5
