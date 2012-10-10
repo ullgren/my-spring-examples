@@ -9,8 +9,8 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration({"BookstroeServiceTest-context.xml"})
-public class BookstroeServiceTest {
+@ContextConfiguration({"BookstoreServiceTest-context.xml"})
+public class BookstoreServiceTest {
 
 	@Autowired
 	ApplicationContext context;
