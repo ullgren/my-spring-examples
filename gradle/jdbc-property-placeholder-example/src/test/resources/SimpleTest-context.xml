@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+        
+        <import resource="classpath:/META-INF/unittest-config.xml"/>
+
+	<bean class="com.redpill_linpro.springframework.beans.factory.config.JdbcPlaceholderConfigurer">
+            <property name="dataSource" ref="dataSource" />
+            <property name="selectStatement" value="SELECT value FROM properties WHERE key = ?" />
+        </bean>
+
+        <bean id="configuredName" class="java.lang.String">
+            <constructor-arg value="${configuredName}"/>
+        </bean>
+</beans>

@@ -1,0 +1,28 @@
+apply plugin: 'java'
+apply plugin: 'maven'
+
+description = 'Example project on how to use the Spring JDBC Placeholder Configurer'
+
+sourceCompatibility=1.7
+targetCompatibility=1.7
+
+// Product versions
+ext {
+  springVersion='3.1.+'
+  junitVersion='4.+'
+}
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
+
+dependencies {
+    compile "com.redpill_linpro.springframework:spring-config-jdbc:1.0"
+    compile "org.springframework:spring-context:${springVersion}"
+    compile "org.springframework:spring-aop:${springVersion}"
+    compile "org.springframework:spring-jdbc:${springVersion}"
+    testCompile "org.springframework:spring-test:${springVersion}"
+    testCompile "hsqldb:hsqldb:1.8.+"
+    testCompile "junit:junit:${junitVersion}"
+}
